@@ -48,7 +48,7 @@ else
     echo "..........Updating genesis......."
     sed -i "s/\"stake\"/\"uflix\"/g" $FLIX_HOME/config/genesis.json
 
-    GENACC=$(cat ../$GENTX_FILE | sed -n 's|.*"delegator_address":"\([^"]*\)".*|\1|p')
+    GENACC=$(cat $GENTX_FILE | sed -n 's|.*"delegator_address":"\([^"]*\)".*|\1|p')
 
     echo $GENACC
 
@@ -57,7 +57,7 @@ else
 
     ./omniflixhubd gentx $RANDOM_KEY 40000000uflix --home $FLIX_HOME \
          --keyring-backend test --chain-id $CHAIN_ID
-    cp ../$GENTX_FILE $FLIX_HOME/config/gentx/
+    cp $GENTX_FILE $FLIX_HOME/config/gentx/
 
     echo "..........Collecting gentxs......."
     ./omniflixhubd collect-gentxs --home $FLIX_HOME
