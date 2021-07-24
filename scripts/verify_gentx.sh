@@ -48,7 +48,7 @@ else
     echo "..........Updating genesis......."
     sed -i "s/\"stake\"/\"uflix\"/g" $FLIX_HOME/config/genesis.json
 
-    GENACC=$(cat $GENTX_FILE | sed -n 's|.*"delegator_address":"\([^"]*\)".*|\1|p')
+    GENACC=$(jq -r '.body.messages[0].delegator_address' $GENTX_FILE)
 
     echo $GENACC
 
