@@ -36,13 +36,21 @@ else
         echo "bonded amount is too high: $amt > $maxbond"
         exit 1
     fi
-
+    echo "....Install go.............."
+    sudo rm -rf /usr/local/go
+    curl https://dl.google.com/go/go1.16.5.linux-amd64.tar.gz | sudo tar -C /usr/local -zxvf -
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/go
+    export GO111MODULE=on
+    export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+    echo "........install softwares............"
+    sudo apt-get install git curl build-essential make jq -y
     echo "...........Init omniflixhub.............."
 
     git clone https://github.com/OmniFlix/omniflixhub
     cd omniflixhub
     git checkout v0.1.0
-    make install
+    sudo make install
 
     omniflixhub keys add $RANDOM_KEY --home $FLIX_HOME
 
