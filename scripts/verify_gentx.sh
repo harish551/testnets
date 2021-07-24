@@ -6,8 +6,8 @@ CHAIN_ID=flixnet-1
 GENTX_FILE=$(find ./$CHAIN_ID/gentxs -iname "*.json")
 LEN_GENTX=$(echo ${#GENTX_FILE})
 
-GENTX_DEADLINE=$(date -d '26-07-2021 18:00:00' '+%d/%m/%Y %H:%M:%S')
-now=$(date +"%d/%m/%Y %H:%M:%S")
+GENTX_DEADLINE=$(date -d '26-07-2021 18:00:00' '+%d-%m-%Y %H:%M:%S')
+now=$(date +"%d-%m-%Y %H:%M:%S")
 
 declare -i maxbond=50000000
 
