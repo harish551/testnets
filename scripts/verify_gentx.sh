@@ -38,14 +38,12 @@ else
     fi
     echo "...........Init omniflixhub.............."
 
-    git clone https://github.com/OmniFlix/omniflixhub
-    cd omniflixhub
-    git checkout v0.1.0
-    sudo make install
+    wget https://github.com/OmniFlix/omniflixhub/releases/download/v0.1.0/omniflixhubd
+    chmod +x omniflixhubd
+    
+    ./omniflixhub keys add $RANDOM_KEY --home $FLIX_HOME
 
-    omniflixhub keys add $RANDOM_KEY --home $FLIX_HOME
-
-    omniflixhub init --chain-id $CHAIN_ID validator --home $FLIX_HOME
+    ./omniflixhub init --chain-id $CHAIN_ID validator --home $FLIX_HOME
 
     echo "..........Updating genesis......."
     sed -i "s/\"stake\"/\"uflix\"/g" $FLIX_HOME/config/genesis.json
@@ -54,27 +52,27 @@ else
 
     echo $GENACC
 
-    omniflixhub add-genesis-account $RANDOM_KEY 50000000uflix --home $FLIX_HOME --keyring-backend test
-    omniflixhub add-genesis-account $GENACC 50000000uflix --home $FLIX_HOME
+    ./omniflixhub add-genesis-account $RANDOM_KEY 50000000uflix --home $FLIX_HOME --keyring-backend test
+    ./omniflixhub add-genesis-account $GENACC 50000000uflix --home $FLIX_HOME
 
-    omniflixhub gentx $RANDOM_KEY 40000000uflix --home $FLIX_HOME \
+    ./omniflixhub gentx $RANDOM_KEY 40000000uflix --home $FLIX_HOME \
          --keyring-backend test --chain-id $CHAIN_ID
     cp ../$GENTX_FILE $FLIX_HOME/config/gentx/
 
     echo "..........Collecting gentxs......."
-    omniflixhub collect-gentxs --home $FLIX_HOME
+    ./omniflixhub collect-gentxs --home $FLIX_HOME
     sed -i '/persistent_peers =/c\persistent_peers = ""' $FLIX_HOME/config/config.toml
 
-    omniflixhub validate-genesis --home $FLIX_HOME
+    ./omniflixhub validate-genesis --home $FLIX_HOME
 
     echo "..........Starting node......."
-    omniflixhub start --home $FLIX_HOME &
+    ./omniflixhub start --home $FLIX_HOME &
 
     sleep 5s
 
     echo "...checking network status.."
 
-    omniflixhubd status --node http://localhost:26657
+    ./omniflixhubd status --node http://localhost:26657
 
     echo "...Cleaning ..."
     killall omniflixhub >/dev/null 2>&1
