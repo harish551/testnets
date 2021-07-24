@@ -38,7 +38,7 @@ else
     fi
     echo "...........Init omniflixhub.............."
 
-    wget https://github.com/OmniFlix/omniflixhub/releases/download/v0.1.0/omniflixhubd -o omniflixhubd
+    wget -q https://github.com/OmniFlix/omniflixhub/releases/download/v0.1.0/omniflixhubd -O omniflixhubd
     chmod +x omniflixhubd
     
     ./omniflixhubd keys add $RANDOM_KEY --home $FLIX_HOME
