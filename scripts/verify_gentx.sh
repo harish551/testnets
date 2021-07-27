@@ -6,15 +6,15 @@ CHAIN_ID=flixnet-1
 GENTX_FILE=$(find ./$CHAIN_ID/gentxs -iname "*.json")
 LEN_GENTX=$(echo ${#GENTX_FILE})
 
-GENTX_DEADLINE=$(date -u -d '2021-07-26T18:00:00.000Z' +'%s')
-now=$(date -u +'%s')
+#GENTX_DEADLINE=$(date -u -d '2021-07-26T18:00:00.000Z' +'%s')
+#now=$(date -u +'%s')
 
 declare -i maxbond=50000000
 
-if [ $now -ge $GENTX_DEADLINE ]; then
-    echo 'Gentx submission is closed'
-    exit 0
-fi
+#if [ $now -ge $GENTX_DEADLINE ]; then
+#    echo 'Gentx submission is closed'
+#    exit 1
+#fi
 
 if [ $LEN_GENTX -eq 0 ]; then
     echo "gentx file not found."
