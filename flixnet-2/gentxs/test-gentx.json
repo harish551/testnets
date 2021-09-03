@@ -16,8 +16,8 @@
           "max_change_rate": "0.010000000000000000"
         },
         "min_self_delegation": "1",
-        "delegator_address": "omniflix1htrxarumaf9lthsc7lnkm58mjkkasc900ud26e",
-        "validator_address": "omniflixvaloper1htrxarumaf9lthsc7lnkm58mjkkasc90zwltm3",
+        "delegator_address": "omniflix1zfmmxr0kpquw3rhgkxe4de52lxgq6dmppaw55y",
+        "validator_address": "omniflixvaloper1zfmmxr0kpquw3rhgkxe4de52lxgq6dmpv0u44v",
         "pubkey": {
           "@type": "/cosmos.crypto.ed25519.PubKey",
           "key": "k9AeYTzBz/JcGblnPBej5CNtJDx/rPM6n0SEB32RmUM="
@@ -38,7 +38,7 @@
       {
         "public_key": {
           "@type": "/cosmos.crypto.secp256k1.PubKey",
-          "key": "AxnvgKV/GDQKku1z7Robx3PfGg5GVUXB8+YYBc1PxQ2X"
+          "key": "AixRGKMh8Xcrf12X5pl65VMnB/ZfYXWXEZxQBG67mN2W"
         },
         "mode_info": {
           "single": {
@@ -56,6 +56,6 @@
     }
   },
   "signatures": [
-    "6a2TeZbuFw1qsKT+wH+4zABkj2OfdTxnryozHVFfsidloUOHaAsi2bQw7+jwLCq3MT6XPyJ+rlUIXNyEsma5Ig=="
+    "0Vub1DKah6xoEHQoW5f1A+IzqpwmDWnllr/Wkppmg+lYchK7JTljqG0CPcRzzdIOrRm+dwbY8eAyxR0bL505JA=="
   ]
 }
