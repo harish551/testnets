@@ -4,7 +4,7 @@ import json
 
 CHAIN_ID = 'flixnet-2'
 PREV_CHAIN_ID = 'flixnet-1'
-gentx_files = print(glob.glob(f'./{CHAIN_ID}/gentxs/*.json'))
+gentx_files = glob.glob(f'./{CHAIN_ID}/gentxs/*.json')
 
 if len(gentx_files) != 1:
     print("invalid submission!!")
