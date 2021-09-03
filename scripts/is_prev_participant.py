@@ -21,7 +21,7 @@ with open(p_file, 'r') as p_f:
     text = p_f.read()
     prev_participants = text.strip().split('\n')
 
-if gentx['body']['messages'][0]['validator_address'] is in prev_participants:
+if gentx['body']['messages'][0]['validator_address'] in prev_participants:
     print("Yes, Previous Participant")
 else:
     print('No')
