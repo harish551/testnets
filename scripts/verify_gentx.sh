@@ -24,7 +24,7 @@ GENTX_FILE=$(find ./$CHAIN_ID/gentxs -iname "*.json")
 FILES_COUNT=$(find ./$CHAIN_ID/gentxs -iname "*.json" | wc -l)
 LEN_GENTX=$(echo ${#GENTX_FILE})
 
-if [[ $FILES_COUNT -ge 1 ]]; then
+if [ $FILES_COUNT -g 1 ]; then
     echo 'Invalid! found more than 1 json file'
     exit 1
 fi
